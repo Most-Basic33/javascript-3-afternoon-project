@@ -22,9 +22,7 @@ var carDetails = {
 */
 
 //Code Here
-
-
-
+const { color, make, model, year } = carDetails;
 ////////// PROBLEM 2 //////////
 
 /*
@@ -33,9 +31,9 @@ var carDetails = {
   The property names are firstName, lastName, and title.
 */
 
-function greeting( obj ) {
+function greeting(obj) {
   //Code Here
-  
+  const { firstName, lastName, title } = obj;
   // Do not edit the code below.
   return 'Hello, ' + title + ' ' + firstName + ' ' + lastName + '!';
   // Do not edit the code above.
@@ -54,21 +52,30 @@ function greeting( obj ) {
 */
 
 //Code Here
+let totalPopulation = (obj) => {
+  const { utah, california, texas, arizona } = obj;
+  return utah + california + texas + arizona;
 
+}
 
 
 ////////// PROBLEM 4 //////////
 
 /*
-  Write a function called ingredients that will take in an object. 
-  This object will have 3 properties named carb, fat, and protein. 
-  The property values will be strings. 
-  Use object destructuring to save the property values to new variables. 
-  Push these new variables to an array and return the array. 
+  Write a function called ingredients that will take in an object.
+  This object will have 3 properties named carb, fat, and protein.
+  The property values will be strings.
+  Use object destructuring to save the property values to new variables.
+  Push these new variables to an array and return the array.
 */
 
 //Code Here
-
+function ingredients(obj) {
+  let newArray = []
+  const { carb, fat, protein } = obj;
+  newArray.push(carb, fat, protein);
+  return newArray;
+}
 
 
 ////////// PROBLEM 5 //////////
@@ -86,8 +93,10 @@ function greeting( obj ) {
 */
 
 //Code Here
-
-
+let largeNumbers = function ({ first, second, third }) {
+  let smallest = Math.min(first, second, third);
+  return smallest
+}
 
 ////////// PROBLEM 6 //////////
 
@@ -99,4 +108,9 @@ function greeting( obj ) {
 
 //Code Here
 
+let numberGroups = ({ a, b, c }) => {
 
+  let longest = [a, b, c].sort((a, b) => b.length - a.length);
+  return longest[0];
+
+}
