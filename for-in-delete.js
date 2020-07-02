@@ -11,25 +11,25 @@
   In the example below, we are accessing the property values. Uncomment the code below, run it and look at what prints in the console.
 */
 
-// var values = {
-//   one: 'These',
-//   two: ' are',
-//   three: ' the',
-//   four: ' property',
-//   five: ' values.'
-// } 
+var values = {
+  one: 'These',
+  two: ' are',
+  three: ' the',
+  four: ' property',
+  five: ' values.'
+}
 
-// for(var key in values) {
-//   console.log(values[key])
-// }
+for (var key in values) {
+  console.log(values[key])
+}
 
 /*
   In this next example, we are accessing the property names themselves. Uncomment the code below, run it and look at what prints in the console.
 */
 
-// for(var key in values) {
-//   console.log(key)
-// }
+for (var key in values) {
+  //console.log(key)
+}
 
 
 
@@ -39,11 +39,18 @@
   Inside the function showValues, write a for in loop that concatenates each of the property values and returns the concatenated string.
 */
 
-function showValues( obj ) {
-  //Code Here
+function showValues(obj) {
+  let ans = []
+  let sen = '';
+  for (let key in obj) {
+    ans.push(obj[key])
+    sen = ans.join('')
+  }
+  //console.log(sen)
+  return sen
 }
 
-
+showValues(values)
 
 ////////// PROBLEM 2 //////////
 
@@ -54,7 +61,14 @@ function showValues( obj ) {
 */
 
 //Code Here
-
+const greaterThan10 = (obj) => {
+  for (let key in obj) {
+    if (obj[key] > 10) {
+      obj[key] = 0
+    }
+  }
+  return obj
+}
 
 
 ////////// PROBLEM 3 //////////
@@ -64,11 +78,20 @@ function showValues( obj ) {
   Write a for in loop that loops over the object and changes every value to be itself multipled by 2.
   Return the updated object.
 */
-
+const nums = {num: 2, num1: 4, num2:6, num3: 8}
 //Code Here
+const double = (obj) => {
+ 
+  for (key in obj) {
+   
+    obj[key]= obj[key] * 2
+  }
 
+ 
+  return obj
+}
 
-
+double(nums)
 ////////// PROBLEM 4 //////////
 
 /*
@@ -80,26 +103,35 @@ function showValues( obj ) {
 */
 
 //Code Here
+let ans = {sh :1, is:2,}
 
-
-
+const secrets=obj=>{
+let str='';
+  for(let key in obj){
+    if(key.startsWith('sh')){
+    str+=key
+    console.log(str)
+    }
+  }
+}
+secrets(ans)
 /* 
   Sometimes it's needed to delete object properties. 
   All you need is the word delete before a reference to the object property value. 
   Uncomment the example below to see a for in loop deleting all the properties inside an object.
 */
 
-// var deleteAllThethings = {
-//   one: 1,
-//   two: 2,
-//   three: 3
-// }
+var deleteAllThethings = {
+  one: 1,
+  two: 2,
+  three: 3
+}
 
-// for(var key in deleteAllThethings) {
-//   delete deleteAllThethings[key]
-// }
+for (var key in deleteAllThethings) {
+  delete deleteAllThethings[key]
+}
 
-// console.log(deleteAllThethings)
+console.log(deleteAllThethings)
 
 
 
@@ -111,7 +143,10 @@ function showValues( obj ) {
 */
 
 //Code Here
-
+const removePassword = (obj) => {
+  delete obj.password
+  return obj
+}
 
 
 ////////// PROBLEM 6 //////////
